@@ -1,103 +1,136 @@
 /* Variables */
-$font-stack: Arial, sans-serif;
-$primary-color: #333;
-$secondary-color: #fff;
-$background-color: #f4f4f4;
-$box-shadow-color: rgba(0, 0, 0, 0.1);
+$primary-color: #007bff;
+$secondary-color: #333;
+$text-color: #555;
+$background-color: #f9f9f9;
+$hover-bg-color: lighten($primary-color, 10%);
+$hover-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+$max-width: 900px;
 
-/* Reset some default browser styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* Global Styles */
 body {
-    font-family: $font-stack;
-    line-height: 1.6;
-    background-color: $background-color;
-    color: $primary-color;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: $background-color;
+  line-height: 1.6;
 }
 
-/* Navigation Styles */
+/* Header Styling */
 header {
-    background-color: $primary-color;
-    color: $secondary-color;
-    padding: 10px 0;
-    text-align: center;
-    
-    nav {
-        ul {
-            list-style: none;
+  background-color: $secondary-color;
+  padding: 1rem 0;
+  text-align: center;
 
-            li {
-                display: inline;
-                margin: 0 15px;
+  nav {
+    ul {
+      list-style: none;
+      padding: 0;
 
-                a {
-                    color: $secondary-color;
-                    text-decoration: none;
-                    font-weight: bold;
+      li {
+        display: inline;
+        margin: 0 15px;
 
-                    &:hover {
-                        text-decoration: underline;
-                    }
-                }
-            }
+        a {
+          color: #fff;
+          text-decoration: none;
+          padding: 0.5rem 1rem;
+          transition: background 0.3s;
+
+          &:hover {
+            background-color: $hover-bg-color;
+            border-radius: 5px;
+          }
         }
+      }
     }
+  }
 }
 
-/* Main Content Styles */
+/* Main Content Styling */
 .container {
-    max-width: 1200px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: $secondary-color;
-    border-radius: 8px;
-    box-shadow: 0 0 10px $box-shadow-color;
-
-    .blog-post {
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            color: $primary-color;
-        }
-
-        h2 {
-            font-size: 1.8em;
-            margin-top: 20px;
-            margin-bottom: 10px;
-            color: lighten($primary-color, 10%);
-        }
-
-        p {
-            margin-bottom: 15px;
-            line-height: 1.8;
-        }
-
-        ul {
-            margin: 15px 0;
-            padding-left: 20px;
-
-            li {
-                margin-bottom: 10px;
-            }
-        }
-    }
+  max-width: $max-width;
+  margin: 2rem auto;
+  padding: 0 20px;
+  background-color: #fff;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  border-radius: 8px;
 }
 
-/* Footer Styles */
-footer {
-    text-align: center;
-    padding: 10px 0;
-    background-color: $primary-color;
+.blog-post {
+  h1 {
+    font-size: 2rem;
     color: $secondary-color;
-    position: absolute;
-    width: 100%;
-    bottom: 0;
+    transition: color 0.3s ease;
 
-    p {
-        margin: 0;
+    &:hover {
+      color: $primary-color;
     }
+  }
+
+  p {
+    margin: 1rem 0;
+    color: $text-color;
+  }
+
+  h2 {
+    margin-top: 1.5rem;
+    color: darken($secondary-color, 10%);
+    font-size: 1.5rem;
+  }
+
+  ul {
+    padding-left: 20px;
+    margin: 1rem 0;
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  /* Box Shadow & Hover Effect */
+  &:hover {
+    box-shadow: $hover-shadow;
+    transition: box-shadow 0.3s ease-in-out;
+  }
+}
+
+/* Footer Styling */
+footer {
+  background-color: $secondary-color;
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+
+  p {
+    margin: 0;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .blog-post {
+    h1 {
+      font-size: 1.5rem;
+    }
+  }
+
+  header {
+    nav {
+      ul {
+        li {
+          display: block;
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
 }
