@@ -632,6 +632,7 @@ section {
 
 .main-btn {
   border-radius: 30px;
+  margin-bottom: 3px;
   color: inherit;
   font-weight: 600;
   position: relative;
